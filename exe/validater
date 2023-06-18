@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "validater"
+require "optparse"
+
+options ={}
+
+specs = Gem::Specification::load("validater.gemspec")
+
+parser = OptionParser.new do |option|
+
+     option.banner = "Usage #{specs.name} [options]"
+     option.define_head specs.summary
+
+    option.separator ""
+
+    option.on("-e","--Email [VALUE]",String) do |opt|
+        options[:email] = opt
+    end
+
+
+     option.on("-i","--Ip [VALUE]",String) do |opt|
+        options[:ip] = opt
+    end
+
+
+     option.on("-n","--DomaineNameServer [VALUE]",String) do |opt|
+        options[:dns] = opt
+    end
+
+     option.on("-d","--Domain [VALUE]",String) do |opt|
+        options[:domaine] = opt
+    end
+
+    option.on("-h","--Help") do |opt|
+        puts option
+        exit
+  end
+end
+
+begin
+      parser.parse!
+      puts(Validater.get(options))
+rescue KeyError, OptionParser::InvalidOption
+      STDERR.puts %Q[Insuffcient arguments. Run '#{File.basename($0)}' --help for details]
+end

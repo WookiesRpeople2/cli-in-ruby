@@ -1,0 +1,29 @@
+PATH
+  remote: .
+  specs:
+    validater (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    date (3.3.3)
+    open-uri (0.3.0)
+      stringio
+      time
+      uri
+    rake (13.0.6)
+    stringio (3.0.7)
+    time (0.2.2)
+      date
+    uri (0.12.1)
+
+PLATFORMS
+  x64-mingw-ucrt
+
+DEPENDENCIES
+  open-uri
+  rake (~> 13.0)
+  validater!
+
+BUNDLED WITH
+   2.4.13

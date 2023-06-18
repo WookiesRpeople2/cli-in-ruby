@@ -45,3 +45,4 @@ begin
 rescue KeyError, OptionParser::InvalidOption
       STDERR.puts %Q[Insuffcient arguments. Run '#{File.basename($0)}' --help for details]
 end
+
